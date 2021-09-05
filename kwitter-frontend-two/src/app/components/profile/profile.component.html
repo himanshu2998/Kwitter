@@ -1,0 +1,141 @@
+<div class="row">
+  <div class="col-8">
+    <h1 class="h1-strong">{{title}}</h1>
+    <div id="data-profile" *ngIf="user">
+      <div class="row mx-3">
+        <div class="avatar">
+            <img src="{{url + 'get-image-user/' + user.image}}" *ngIf="user.image" />
+            <img src="assets/user.png" *ngIf="!user.image"/>
+        </div>
+      </div>
+      <div class="row m-3 text-center">
+        <div class="col-12">
+          Name: {{user.full_name}}
+        </div>
+      </div>
+      <div class="row m-3 text-center">
+        <div class="col-12">
+          <label>Description</label>
+          <button type="button" class="btn-success" (click)="updateDescription()" [disabled]="!user.description">Update</button>
+          <input type="text" name="description" #description="ngModel" [(ngModel)]="user.description" class="form-control" required />
+        </div>
+      </div>
+      <div class="row m-3 text-center">
+        <div class="col-6">
+          Following: {{user.following_count}}
+        </div>
+        <div class="col-6">
+          Followers: {{user.follower_count}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--<div class="col-lg-8">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+    <div id="data-profile" *ngIf="user">
+        <div class="avatar pull-left">
+            <img src="{{url + 'get-image-user/' + user.image}}" *ngIf="user.image" />
+            <img src="assets/user.png" *ngIf="!user.image"/>
+        </div>
+        <div class="row" style="display: flex;">
+          <div class="col-6">
+            <div class="user-name">
+              <div class="label label-default" *ngIf="user">
+                  Following you
+              </div>
+              <div class="clearfix"></div>
+            <div>
+          </div>
+          <div class="col-6">
+            <div class="user-name">
+              <div class="label label-default" *ngIf="user">
+                  Followers
+              </div>
+              <div class="clearfix"></div>
+            <div>
+          </div>
+        </div>
+        <div class="user-name pull-left">
+            <div class="label label-default pull-left" *ngIf="user">
+                Following you
+            </div>
+            <div class="clearfix"></div>
+            <div class="pull-left">
+                <p class="name">
+                    {{user.full_name}}
+                </p>
+                <p class="user">
+                    {{user.userame}}
+                </p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="follow pull-left" *ngIf="user">
+                <button 
+                    class="btn btn-success" 
+                    *ngIf="!following"
+                    (click)="followUser(user._id)"
+                >
+                    Follow
+                </button>
+                <button 
+                    class="btn btn-primary" 
+                    *ngIf="user" 
+                    (click)="unfollowUser(user._id)"
+                    (mouseenter)="mouseEnter(user._id)"
+                    (mouseleave)="mouseLeave(user._id)"
+                    [class.btn-danger]="user"
+                >
+                    <span *ngIf="user">
+                        <span class="glyphicon glyphicon-minus-sign"></span> Stop Follow
+                    </span>
+                    <ng-template #following>
+                        <span class="glyphicon glyphicon-ok-sign"></span> Following
+                    </ng-template>
+                </button>
+            </div>
+        </div>
+        <div class="stats pull-left" *ngIf="user">
+            <div class="following-data">
+                <a [routerLink]="['/siguiendo', user._id, 1]">
+                    <span class="label-stats">
+                        Following
+                    </span>
+                    <span class="number-stats">
+                        {{stats.following}}
+                    </span>
+                </a>
+            </div>
+            <div class="following-data">
+                <a [routerLink]="['/seguidores', user._id, 1]">
+                    <span class="label-stats">
+                        Followers
+                    </span>
+                    <span class="number-stats">
+                        {{stats.followed}}
+                    </span>
+                </a>
+            </div>
+            <div class="following-data">
+                <a [routerLink]="['/perfil', user._id]">
+                    <span class="label-stats">
+                        Posts
+                    </span>
+                    <span class="number-stats">
+                        {{stats.publications}}
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-12 publications" *ngIf="user">
+            <publications [user]="user._id"></publications>
+        </div>
+    </div>
+</div>
+<sidebar></sidebar>-->
