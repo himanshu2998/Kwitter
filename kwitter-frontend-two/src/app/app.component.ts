@@ -19,11 +19,12 @@ export class AppComponent {
 
   ngOnInit() {
     this.logedIn = this._userService.getIdentity();
-    this.username = JSON.parse(localStorage.getItem('username'))
+    this.username = JSON.parse(localStorage.getItem('username'));
   }
 
   ngDoCheck() {
     this.logedIn = this._userService.getIdentity();
+    this.username = JSON.parse(localStorage.getItem('username'));
   }
 
   logout() {
