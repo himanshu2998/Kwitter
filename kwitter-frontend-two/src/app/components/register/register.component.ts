@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
             },
             error => {
               this.registered = false;
-              this._notificationAction.notifyError({title:'', message: error.error?Object.values(error.error)[0]:""});
+              this._notificationAction.notifyError({title:'', message: error.error?Object.keys(error.error)[0].concat(": ".concat(error.error[Object.keys(error.error)[0]])):""});
             }
         );
     }

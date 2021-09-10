@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit {
             },
             error => {
                 this.status = 'error';
-                this._notificationAction.notifyError({title:'', message: error.error?Object.values(error.error)[0]:""});
+                this._notificationAction.notifyError({title:'', message: error.error?Object.keys(error.error)[0].concat(": ".concat(error.error[Object.keys(error.error)[0]])):""});
                 this._router.navigate(['/home']);
             }
         );
@@ -93,7 +93,7 @@ export class ProfileComponent implements OnInit {
                 // }
         },
         error => {
-            this._notificationAction.notifyError({title:'', message: error.error?Object.values(error.error)[0]:""});
+            this._notificationAction.notifyError({title:'', message: error.error?Object.keys(error.error)[0].concat(": ".concat(error.error[Object.keys(error.error)[0]])):""});
         }
       );
   }

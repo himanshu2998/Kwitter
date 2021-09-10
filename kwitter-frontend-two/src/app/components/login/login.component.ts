@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
             error => {
               this.status = 'error';
               localStorage.clear();
-              this._notificationAction.notifyError({title:'', message: error.error?Object.values(error.error)[0]:""});
+              this._notificationAction.notifyError({title:'', message: error.error?Object.keys(error.error)[0].concat(": ".concat(error.error[Object.keys(error.error)[0]])):""});
             }
         );
     }
